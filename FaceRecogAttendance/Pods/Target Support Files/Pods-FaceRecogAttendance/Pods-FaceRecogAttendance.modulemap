@@ -1,0 +1,6 @@
+framework module Pods_FaceRecogAttendance {
+  umbrella header "Pods-FaceRecogAttendance-umbrella.h"
+
+  export *
+  module * { export * }
+}

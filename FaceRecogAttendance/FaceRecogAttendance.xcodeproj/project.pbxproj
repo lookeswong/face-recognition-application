@@ -3,27 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		659E638C0C3994345C82493D /* Pods_FaceRecogAttendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700B47D48013A48948569D24 /* Pods_FaceRecogAttendance.framework */; };
 		A0940D18262E7E6800AD51BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0940D17262E7E6800AD51BA /* AppDelegate.swift */; };
 		A0940D1A262E7E6800AD51BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0940D19262E7E6800AD51BA /* SceneDelegate.swift */; };
-		A0940D1C262E7E6800AD51BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0940D1B262E7E6800AD51BA /* ViewController.swift */; };
 		A0940D1F262E7E6800AD51BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0940D1D262E7E6800AD51BA /* Main.storyboard */; };
 		A0940D21262E7E6900AD51BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0940D20262E7E6900AD51BA /* Assets.xcassets */; };
 		A0940D24262E7E6900AD51BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0940D22262E7E6900AD51BA /* LaunchScreen.storyboard */; };
+		A09512E6262F88B80066554E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A09512E5262F88B80066554E /* Realm */; };
+		A09512E8262F88B80066554E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A09512E7262F88B80066554E /* RealmSwift */; };
+		A09512EB262F89340066554E /* SelectModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512EA262F89340066554E /* SelectModuleViewController.swift */; };
+		A09512EE262F89460066554E /* SelectSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512ED262F89460066554E /* SelectSessionViewController.swift */; };
+		A09512F1262F89550066554E /* FaceClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512F0262F89550066554E /* FaceClassificationViewController.swift */; };
+		A09512F4262F8A4D0066554E /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		632CFBB996CE06275375D3E0 /* Pods-FaceRecogAttendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceRecogAttendance.release.xcconfig"; path = "Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance.release.xcconfig"; sourceTree = "<group>"; };
+		700B47D48013A48948569D24 /* Pods_FaceRecogAttendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceRecogAttendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0940D14262E7E6800AD51BA /* FaceRecogAttendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceRecogAttendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0940D17262E7E6800AD51BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0940D19262E7E6800AD51BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A0940D1B262E7E6800AD51BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0940D1E262E7E6800AD51BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0940D20262E7E6900AD51BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0940D23262E7E6900AD51BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0940D25262E7E6900AD51BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09512EA262F89340066554E /* SelectModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModuleViewController.swift; sourceTree = "<group>"; };
+		A09512ED262F89460066554E /* SelectSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSessionViewController.swift; sourceTree = "<group>"; };
+		A09512F0262F89550066554E /* FaceClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassificationViewController.swift; sourceTree = "<group>"; };
+		A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
+		AA9F1E4B6F3F1A4222A527CC /* Pods-FaceRecogAttendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceRecogAttendance.debug.xcconfig"; path = "Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09512E8262F88B80066554E /* RealmSwift in Frameworks */,
+				A09512E6262F88B80066554E /* Realm in Frameworks */,
+				659E638C0C3994345C82493D /* Pods_FaceRecogAttendance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78A25677D99019FFB060D822 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				700B47D48013A48948569D24 /* Pods_FaceRecogAttendance.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0940D0B262E7E6800AD51BA = {
 			isa = PBXGroup;
 			children = (
 				A0940D16262E7E6800AD51BA /* FaceRecogAttendance */,
 				A0940D15262E7E6800AD51BA /* Products */,
+				FEE9F7622101416140E91014 /* Pods */,
+				78A25677D99019FFB060D822 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +81,51 @@
 		A0940D16262E7E6800AD51BA /* FaceRecogAttendance */ = {
 			isa = PBXGroup;
 			children = (
+				A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */,
+				A09512CB262F85770066554E /* Model */,
+				A09512CC262F85810066554E /* View */,
+				A09512CD262F858F0066554E /* Controller */,
 				A0940D17262E7E6800AD51BA /* AppDelegate.swift */,
 				A0940D19262E7E6800AD51BA /* SceneDelegate.swift */,
-				A0940D1B262E7E6800AD51BA /* ViewController.swift */,
-				A0940D1D262E7E6800AD51BA /* Main.storyboard */,
 				A0940D20262E7E6900AD51BA /* Assets.xcassets */,
 				A0940D22262E7E6900AD51BA /* LaunchScreen.storyboard */,
 				A0940D25262E7E6900AD51BA /* Info.plist */,
 			);
 			path = FaceRecogAttendance;
+			sourceTree = "<group>";
+		};
+		A09512CB262F85770066554E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A09512CC262F85810066554E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0940D1D262E7E6800AD51BA /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A09512CD262F858F0066554E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A09512EA262F89340066554E /* SelectModuleViewController.swift */,
+				A09512ED262F89460066554E /* SelectSessionViewController.swift */,
+				A09512F0262F89550066554E /* FaceClassificationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEE9F7622101416140E91014 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F1E4B6F3F1A4222A527CC /* Pods-FaceRecogAttendance.debug.xcconfig */,
+				632CFBB996CE06275375D3E0 /* Pods-FaceRecogAttendance.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +135,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0940D28262E7E6900AD51BA /* Build configuration list for PBXNativeTarget "FaceRecogAttendance" */;
 			buildPhases = (
+				8FFAE9D133B7CE768481BD2C /* [CP] Check Pods Manifest.lock */,
 				A0940D10262E7E6800AD51BA /* Sources */,
 				A0940D11262E7E6800AD51BA /* Frameworks */,
 				A0940D12262E7E6800AD51BA /* Resources */,
+				1F886BD5E76387EC128C93DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FaceRecogAttendance;
+			packageProductDependencies = (
+				A09512E5262F88B80066554E /* Realm */,
+				A09512E7262F88B80066554E /* RealmSwift */,
+			);
 			productName = FaceRecogAttendance;
 			productReference = A0940D14262E7E6800AD51BA /* FaceRecogAttendance.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +177,9 @@
 				Base,
 			);
 			mainGroup = A0940D0B262E7E6800AD51BA;
+			packageReferences = (
+				A09512E4262F88B80066554E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = A0940D15262E7E6800AD51BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,13 +202,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F886BD5E76387EC128C93DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FFAE9D133B7CE768481BD2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceRecogAttendance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0940D10262E7E6800AD51BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0940D1C262E7E6800AD51BA /* ViewController.swift in Sources */,
+				A09512F4262F8A4D0066554E /* FaceClassifier.mlmodel in Sources */,
 				A0940D18262E7E6800AD51BA /* AppDelegate.swift in Sources */,
+				A09512F1262F89550066554E /* FaceClassificationViewController.swift in Sources */,
+				A09512EE262F89460066554E /* SelectSessionViewController.swift in Sources */,
+				A09512EB262F89340066554E /* SelectModuleViewController.swift in Sources */,
 				A0940D1A262E7E6800AD51BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +398,7 @@
 		};
 		A0940D29262E7E6900AD51BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9F1E4B6F3F1A4222A527CC /* Pods-FaceRecogAttendance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +418,7 @@
 		};
 		A0940D2A262E7E6900AD51BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632CFBB996CE06275375D3E0 /* Pods-FaceRecogAttendance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -341,6 +458,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A09512E4262F88B80066554E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A09512E5262F88B80066554E /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A09512E4262F88B80066554E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		A09512E7262F88B80066554E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A09512E4262F88B80066554E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0940D0C262E7E6800AD51BA /* Project object */;
 }
