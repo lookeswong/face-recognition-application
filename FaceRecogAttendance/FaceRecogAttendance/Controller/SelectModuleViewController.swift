@@ -58,6 +58,8 @@ class SelectModuleViewController: UITableViewController {
 //        tableView.reloadData()
 //    }
     
+    //MARK: - REALM SYNC DATA MANIPULATION METHOD
+    
     deinit {
         notificationToken?.invalidate()
     }

@@ -19,6 +19,11 @@
 		A09512EE262F89460066554E /* SelectSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512ED262F89460066554E /* SelectSessionViewController.swift */; };
 		A09512F1262F89550066554E /* FaceClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512F0262F89550066554E /* FaceClassificationViewController.swift */; };
 		A09512F4262F8A4D0066554E /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */; };
+		A09512F7262F8B170066554E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512F6262F8B170066554E /* Student.swift */; };
+		A09512FA262F8C0E0066554E /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09512F9262F8C0E0066554E /* CameraManager.swift */; };
+		A0951310262F8C670066554E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095130F262F8C670066554E /* Session.swift */; };
+		A0951313262F8C850066554E /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0951312262F8C850066554E /* Attendance.swift */; };
+		A0951318262F8C900066554E /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0951317262F8C900066554E /* Module.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		A09512ED262F89460066554E /* SelectSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSessionViewController.swift; sourceTree = "<group>"; };
 		A09512F0262F89550066554E /* FaceClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassificationViewController.swift; sourceTree = "<group>"; };
 		A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
+		A09512F6262F8B170066554E /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		A09512F9262F8C0E0066554E /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		A095130F262F8C670066554E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A0951312262F8C850066554E /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		A0951317262F8C900066554E /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		AA9F1E4B6F3F1A4222A527CC /* Pods-FaceRecogAttendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceRecogAttendance.debug.xcconfig"; path = "Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +107,11 @@
 		A09512CB262F85770066554E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0951312262F8C850066554E /* Attendance.swift */,
+				A09512F9262F8C0E0066554E /* CameraManager.swift */,
+				A095130F262F8C670066554E /* Session.swift */,
+				A09512F6262F8B170066554E /* Student.swift */,
+				A0951317262F8C900066554E /* Module.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,10 +266,15 @@
 			files = (
 				A09512F4262F8A4D0066554E /* FaceClassifier.mlmodel in Sources */,
 				A0940D18262E7E6800AD51BA /* AppDelegate.swift in Sources */,
+				A09512FA262F8C0E0066554E /* CameraManager.swift in Sources */,
 				A09512F1262F89550066554E /* FaceClassificationViewController.swift in Sources */,
+				A0951313262F8C850066554E /* Attendance.swift in Sources */,
 				A09512EE262F89460066554E /* SelectSessionViewController.swift in Sources */,
 				A09512EB262F89340066554E /* SelectModuleViewController.swift in Sources */,
+				A09512F7262F8B170066554E /* Student.swift in Sources */,
 				A0940D1A262E7E6800AD51BA /* SceneDelegate.swift in Sources */,
+				A0951318262F8C900066554E /* Module.swift in Sources */,
+				A0951310262F8C670066554E /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
