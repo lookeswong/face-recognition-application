@@ -263,7 +263,7 @@
         <!--Success View Controller-->
         <scene sceneID="owC-2b-Ai4">
             <objects>
-                <viewController id="rXJ-vt-WP0" customClass="SuccessViewController" customModule="FaceRecogAttendance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rXJ-vt-WP0" customClass="SuccessViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u2s-s4-Y7b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
