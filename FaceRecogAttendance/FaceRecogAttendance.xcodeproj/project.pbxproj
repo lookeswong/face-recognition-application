@@ -24,6 +24,10 @@
 		A0951310262F8C670066554E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095130F262F8C670066554E /* Session.swift */; };
 		A0951313262F8C850066554E /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0951312262F8C850066554E /* Attendance.swift */; };
 		A0951318262F8C900066554E /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0951317262F8C900066554E /* Module.swift */; };
+		A0AED11E2634C2B300CA51C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED11D2634C2B300CA51C5 /* LoginViewController.swift */; };
+		A0AED1212634C2CC00CA51C5 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED1202634C2CC00CA51C5 /* AdminViewController.swift */; };
+		A0AED1242634C33000CA51C5 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED1232634C33000CA51C5 /* StudentViewController.swift */; };
+		A0AED1272634C35000CA51C5 /* StudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED1262634C35000CA51C5 /* StudentDetailViewController.swift */; };
 		A0B8A3562630BCC000068B14 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8A3552630BCC000068B14 /* RegisterViewController.swift */; };
 		A0B8A3592630BCD900068B14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8A3582630BCD900068B14 /* WelcomeViewController.swift */; };
 		A0B8A35C2630C6D100068B14 /* FaceTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8A35B2630C6D100068B14 /* FaceTrackerViewController.swift */; };
@@ -49,6 +53,10 @@
 		A095130F262F8C670066554E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A0951312262F8C850066554E /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		A0951317262F8C900066554E /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		A0AED11D2634C2B300CA51C5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A0AED1202634C2CC00CA51C5 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		A0AED1232634C33000CA51C5 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		A0AED1262634C35000CA51C5 /* StudentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailViewController.swift; sourceTree = "<group>"; };
 		A0B8A3552630BCC000068B14 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A0B8A3582630BCD900068B14 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0B8A35B2630C6D100068B14 /* FaceTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackerViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +150,10 @@
 				A0B8A3582630BCD900068B14 /* WelcomeViewController.swift */,
 				A0B8A35B2630C6D100068B14 /* FaceTrackerViewController.swift */,
 				A0B8A35E2630C70A00068B14 /* SuccessViewController.swift */,
+				A0AED11D2634C2B300CA51C5 /* LoginViewController.swift */,
+				A0AED1202634C2CC00CA51C5 /* AdminViewController.swift */,
+				A0AED1232634C33000CA51C5 /* StudentViewController.swift */,
+				A0AED1262634C35000CA51C5 /* StudentDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,16 +290,20 @@
 			files = (
 				A09512F4262F8A4D0066554E /* FaceClassifier.mlmodel in Sources */,
 				A0940D18262E7E6800AD51BA /* AppDelegate.swift in Sources */,
+				A0AED1212634C2CC00CA51C5 /* AdminViewController.swift in Sources */,
 				A09512FA262F8C0E0066554E /* CameraManager.swift in Sources */,
 				A0B8A3562630BCC000068B14 /* RegisterViewController.swift in Sources */,
 				A09512F1262F89550066554E /* FaceClassificationViewController.swift in Sources */,
+				A0AED1242634C33000CA51C5 /* StudentViewController.swift in Sources */,
 				A0951313262F8C850066554E /* Attendance.swift in Sources */,
 				A0B8A35C2630C6D100068B14 /* FaceTrackerViewController.swift in Sources */,
 				A0B8A3592630BCD900068B14 /* WelcomeViewController.swift in Sources */,
+				A0AED1272634C35000CA51C5 /* StudentDetailViewController.swift in Sources */,
 				A09512EE262F89460066554E /* SelectSessionViewController.swift in Sources */,
 				A09512EB262F89340066554E /* SelectModuleViewController.swift in Sources */,
 				A09512F7262F8B170066554E /* Student.swift in Sources */,
 				A0940D1A262E7E6800AD51BA /* SceneDelegate.swift in Sources */,
+				A0AED11E2634C2B300CA51C5 /* LoginViewController.swift in Sources */,
 				A0951318262F8C900066554E /* Module.swift in Sources */,
 				A0B8A35F2630C70A00068B14 /* SuccessViewController.swift in Sources */,
 				A0951310262F8C670066554E /* Session.swift in Sources */,
