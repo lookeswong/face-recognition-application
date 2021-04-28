@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class SessionListViewController: UITableViewController {
-//    let realm = try! Realm()
     
+    var isCheckAttendancePressed: Bool?
     var notificationToken: NotificationToken?
     var realm : Realm?
     var sessions : Results<Session>?
@@ -36,6 +36,7 @@ class SessionListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Session", style: .default) { (action) in
             let newSession = Session(roomNo: sessionRoomNo.text!, sessionDate: sessionDateTextField.text!, sessionTime: sessionTimeTextField.text!)
             
+            // save session to realm database
             try! self.realm?.write {
                 self.selectedModule?.sessions.append(newSession)
                 }
@@ -90,7 +91,9 @@ class SessionListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToAttendance", sender: self)
+        if isCheckAttendancePressed == true {
+            performSegue(withIdentifier: "goToAttendance", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,19 +104,7 @@ class SessionListViewController: UITableViewController {
         }
     }
     
-    //MARK - Data Manipulation Method
-//    func saveSession(session: Session) {
-//        if let currentModule = self.selectedModule {
-//            do {
-//                try realm.write {
-//                    currentModule.sessions.append(session)
-//                }
-//            } catch {
-//                print("Error saving session \(error)")
-//            }
-//        }
-//    }
-    
+    //MARK: - Data Manipulation Method
     func loadSessions() {
         sessions = selectedModule?.sessions.sorted(byKeyPath: "roomNo")
         tableView.reloadData()

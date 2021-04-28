@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-let app = App(id: "facerecognition-gtgth")
+let app = App(id: "facerecogattendance-qjhla")
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

@@ -11,14 +11,11 @@ import RealmSwift
 
 class StudentViewController: UITableViewController {
     
-//    let realm = try! Realm()
-
     var notificationToken: NotificationToken?
     var students: Results<Student>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadStudents()
         onLogin()
     }
     
@@ -51,24 +48,21 @@ class StudentViewController: UITableViewController {
         }
     }
     
-//    func loadStudents() {
-//        students = realm?.objects(Student.self)
-//        tableView.reloadData()
+//    // function to login to synced realm
+//    func login() {
+//        app.login(credentials: Credentials.anonymous) { (result) in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .failure(let error):
+//                    print("Login Failed: \(error)")
+//                case .success(let user):
+//                    print("Login as \(user) sucdeeded")
+//                }
+//            }
+//        }
 //    }
     
-    func login() {
-        app.login(credentials: Credentials.anonymous) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print("Login Failed: \(error)")
-                case .success(let user):
-                    print("Login as \(user) sucdeeded")
-                }
-            }
-        }
-    }
-    
+    // check if user is allow to access to synced realm
     func onLogin() {
         let user = app.currentUser!
         let partitionValue = "user=\(user.id)"

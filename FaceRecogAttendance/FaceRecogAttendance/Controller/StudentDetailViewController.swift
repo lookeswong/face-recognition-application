@@ -40,9 +40,6 @@ class StudentDetailViewController: UIViewController {
             imageTrainedSegment.selectedSegmentIndex = 0
         }
         
-//        studentIDLabel.text = studentID
-//        studentEmailLabel.text = studentEmail
-//        imageUploadLabel.text = imageUpload?.description
     }
     
     @IBAction func imageTrainedPressed(_ sender: UISegmentedControl) {

@@ -10,7 +10,6 @@ import RealmSwift
 
 class RegisterViewController: UIViewController {
     
-//    let realm = try! Realm()
     var notificationToken: NotificationToken?
     var realm : Realm?
     
@@ -24,7 +23,6 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
         signUp()
     }
     
@@ -43,33 +41,16 @@ class RegisterViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-//        let newStudent = Student()
-//        newStudent.email = emailTextField.text!
-//        newStudent.password = passwordTextField.text!
-//        newStudent.studentName = nameTextField.text!
-//        newStudent.studentID = studentIDTextField.text!
-//        newStudent.isImageUpload = true
-        let newStudent = Student(studentName: nameTextField.text!, studentID: studentIDTextField.text!, email: emailTextField.text!, password: "", isImageUpload: true, isImageTrained: false, partition: "user=\(app.currentUser!.id)")
+        let newStudent = Student(studentName: nameTextField.text!, studentID: studentIDTextField.text!, email: emailTextField.text!, password: " ", isImageUpload: true, isImageTrained: false, partition: "user=\(app.currentUser!.id)")
         
+        // save student into realm database
         try! self.realm?.write {
             self.realm?.add(newStudent)
             }
-//        self.saveStudent(student: newStudent)
         
         print("successfully registered student")
         self.performSegue(withIdentifier: "goToRegistered", sender: self)
     }
-    
-
-//    func saveStudent(student: Student) {
-//        do {
-//            try self.realm.write {
-//                self.realm.add(student)
-//            }
-//        } catch {
-//            print("Error saving category \(error)")
-//        }
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToRecord" {
@@ -83,6 +64,7 @@ class RegisterViewController: UIViewController {
         notificationToken?.invalidate()
     }
     
+    // a function that allow student to sign up to the application
     @objc func signUp() {
         app.login(credentials: Credentials.anonymous) { (result) in
             // Remember to dispatch back to the main thread in completion handlers
@@ -100,6 +82,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    // check if user can get access to synced realm
     @objc func signIn() {
         let user = app.currentUser!
         let partitionValue = "user=\(user.id)"
@@ -117,6 +100,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    // If user is able to access realm
     func onRealmOpened(_ realm: Realm) {
         let students = realm.objects(Student.self)
         

@@ -64,7 +64,7 @@
 		A0B8A3552630BCC000068B14 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A0B8A3582630BCD900068B14 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0B8A35B2630C6D100068B14 /* FaceTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackerViewController.swift; sourceTree = "<group>"; };
-		A0B8A35E2630C70A00068B14 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		A0B8A35E2630C70A00068B14 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessViewController.swift; path = FaceRecogAttendance/Controller/SuccessViewController.swift; sourceTree = SOURCE_ROOT; };
 		A0CDC2CF2638E6920022BEA2 /* ModuleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleListViewController.swift; sourceTree = "<group>"; };
 		A0CDC2D22638E6B20022BEA2 /* SessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewController.swift; sourceTree = "<group>"; };
 		A0CDC2D52638E6C20022BEA2 /* AttendanceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListViewController.swift; sourceTree = "<group>"; };

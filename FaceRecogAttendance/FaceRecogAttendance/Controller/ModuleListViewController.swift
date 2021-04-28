@@ -11,9 +11,6 @@ import RealmSwift
 
 class ModuleListViewController: UITableViewController {
     
-    // call the database
-//    let realm = try! Realm()
-    
     var notificationToken: NotificationToken?
     var realm : Realm?
     var modules : Results<Module>?
@@ -55,8 +52,10 @@ class ModuleListViewController: UITableViewController {
         let destinationVC = segue.destination as! SessionListViewController
         if isCheckAttendancePressed == true {
             destinationVC.navigationItem.rightBarButtonItem?.isEnabled = true
+            destinationVC.isCheckAttendancePressed = false
         } else {
             destinationVC.navigationItem.rightBarButtonItem?.isEnabled = false
+            destinationVC.isCheckAttendancePressed = true
         }
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedModule = modules?[indexPath.row]
@@ -86,7 +85,7 @@ class ModuleListViewController: UITableViewController {
 //        }
 //    }
     
-    //MARK - Add New Modules
+    //MARK: - Add New Modules
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var moduleNameTextField = UITextField()
@@ -98,16 +97,11 @@ class ModuleListViewController: UITableViewController {
             // these line happen once the user clicks the Add Module button on our UIAlert
             let newModule = Module(moduleID: moduleIDTextField.text! , moduleName: moduleNameTextField.text!, partition: "user=\(app.currentUser!.id)")
             
+            // save module into realm database
             try! self.realm?.write {
                 self.realm?.add(newModule)
                 }
-//            if let moduleName = moduleNameTextField.text {
-//                newModule.moduleName = moduleName
-//            }
-//            if let moduleID = moduleIDTextField.text {
-//                newModule.moduleID = moduleID
-//            }
-//            self.saveModule(module: newModule)
+
             print("Successfully created new module")
             
             self.tableView.reloadData()
@@ -128,6 +122,7 @@ class ModuleListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // check if user can access to synced realm
     func onLogin() {
         let user = app.currentUser!
         let partitionValue = "user=\(user.id)"
@@ -143,6 +138,8 @@ class ModuleListViewController: UITableViewController {
         }
     }
     
+    //MARK: - Data Manipulation Methods
+    // if realm is accessed, load the database
     func onRealmOpened(_ realm: Realm) {
         modules = realm.objects(Module.self)
         

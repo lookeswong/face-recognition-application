@@ -13,9 +13,8 @@ class SuccessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
-    
 }

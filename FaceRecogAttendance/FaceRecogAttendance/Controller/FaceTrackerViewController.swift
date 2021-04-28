@@ -18,9 +18,11 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
     let faceDetectionRequest = VNSequenceRequestHandler()
     var faceClassificationRequest: VNCoreMLRequest!
     var lastObservation : VNFaceObservation?
+    let captureSession = AVCaptureSession()
+    let cameraManager = CameraManager()
 
     private var sampleCounter = 0
-    private let requiredSamples = 5
+    private let requiredSamples = 30
     private var faceImages = [UIImage]()
     private var isIdentifiyingPeople = false
     private var isCapturing: Bool = false
@@ -30,31 +32,32 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
     override func viewDidLoad() {
         super.viewDidLoad()
         promptCommand()
-        setupCamera()
+        cameraManager.setupCamera(view: view, delegate: self)
+//        setupCamera()
     }
     
-    func setupCamera() {
-        let captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .high
-        
-        guard let captureDevice = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .front) else { preconditionFailure("A Camera is needed to start the AV session")  }
-        
-        //throw error if no camera is found.
-        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
-        captureSession.addInput(input)
-        
-        captureSession.startRunning()
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.frame
-        
-        let dataOutput = AVCaptureVideoDataOutput()
-        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-        captureSession.addOutput(dataOutput)
-    }
+//    func setupCamera() {
+//        let captureSession = AVCaptureSession()
+//        captureSession.sessionPreset = .high
+//
+//        guard let captureDevice = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .front) else { preconditionFailure("A Camera is needed to start the AV session")  }
+//
+//        //throw error if no camera is found.
+//        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+//        captureSession.addInput(input)
+//
+//        captureSession.startRunning()
+//
+//        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//        view.layer.addSublayer(previewLayer)
+//        previewLayer.frame = view.frame
+//
+//        let dataOutput = AVCaptureVideoDataOutput()
+//        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+//        captureSession.addOutput(dataOutput)
+//    }
     
-    
+    // this function capture the output image frame by frame
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
               let attachments = CMCopyDictionaryOfAttachments(allocator: kCFAllocatorDefault, target: sampleBuffer, attachmentMode: kCMAttachmentMode_ShouldPropagate)
@@ -74,12 +77,13 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
             print("no faces")
             return
         }
-        
+        // if no face is detected
         if isIdentifiyingPeople {
+            // look for face again
             let handler = VNImageRequestHandler(ciImage: image, orientation: .up, options: [:])
             self.lastObservation = faceObservation
             try? handler.perform([self.faceClassificationRequest])
-        } else {
+        } else { // if face detected, capture the image and upload the image to firebase with the firebase functions
             let faceImage: UIImage = convert(cmage: image)
             sampleCounter += 1
             if faceImages.count <= requiredSamples {
@@ -102,6 +106,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         }
     }
     
+    //MARK:- Firebase method
     // upload image to firebase storage
     fileprivate func uploadImages(image: UIImage, completion: @escaping (_ url: String?) -> Void) {
         // convert UIImage to jpg format
@@ -121,7 +126,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         DispatchQueue.main.async {
             imageReference.putData(data, metadata: nil) {(metadata, error) in
                 if error != nil {
-                    print("error")
+                    print(error?.localizedDescription)
                     completion(nil)
                 } else {
                     imageReference.downloadURL(completion: { (url, error) in
@@ -133,6 +138,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         }
     }
     
+    //MARK:- Image Conversion
     // function to convert image to UIImage format
     private func convert(cmage:CIImage) -> UIImage {
         let context:CIContext = CIContext.init(options: nil)
@@ -141,6 +147,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         return image
     }
     
+    //MARK:- Notification function
     private func promptCommand() {
         let alert = UIAlertController.init(title: "Info", message: "The system needs to capture your face images for training purposes. Please align your face at the centre of the screen and look at the camera.", preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
