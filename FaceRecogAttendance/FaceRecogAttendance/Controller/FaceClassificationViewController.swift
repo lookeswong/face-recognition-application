@@ -62,7 +62,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
         faceDetected = false
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         // initiate the face recognition model
-        guard let model = try? VNCoreMLModel(for: FaceClassifier().model) else {
+        guard let model = try? VNCoreMLModel(for: FaceClassifierV3().model) else {
                     fatalError("Unable to load model")
                 }
         let ciImage = CIImage(cvImageBuffer: pixelBuffer, options: [:])

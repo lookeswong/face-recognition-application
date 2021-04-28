@@ -36,6 +36,7 @@
 		A0CDC2D32638E6B20022BEA2 /* SessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CDC2D22638E6B20022BEA2 /* SessionListViewController.swift */; };
 		A0CDC2D62638E6C20022BEA2 /* AttendanceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CDC2D52638E6C20022BEA2 /* AttendanceListViewController.swift */; };
 		A0CDC2D92638E78F0022BEA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0CDC2D82638E78F0022BEA2 /* GoogleService-Info.plist */; };
+		A0FE7D4E263A14C700DFA258 /* FaceClassifierV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A0FE7D4D263A14C700DFA258 /* FaceClassifierV3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		A0CDC2D22638E6B20022BEA2 /* SessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewController.swift; sourceTree = "<group>"; };
 		A0CDC2D52638E6C20022BEA2 /* AttendanceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListViewController.swift; sourceTree = "<group>"; };
 		A0CDC2D82638E78F0022BEA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0FE7D4D263A14C700DFA258 /* FaceClassifierV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifierV3.mlmodel; sourceTree = "<group>"; };
 		AA9F1E4B6F3F1A4222A527CC /* Pods-FaceRecogAttendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceRecogAttendance.debug.xcconfig"; path = "Target Support Files/Pods-FaceRecogAttendance/Pods-FaceRecogAttendance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A09512F3262F8A4D0066554E /* FaceClassifier.mlmodel */,
+				A0FE7D4D263A14C700DFA258 /* FaceClassifierV3.mlmodel */,
 				A09512CB262F85770066554E /* Model */,
 				A09512CC262F85810066554E /* View */,
 				A09512CD262F858F0066554E /* Controller */,
@@ -319,6 +322,7 @@
 				A09512F7262F8B170066554E /* Student.swift in Sources */,
 				A0940D1A262E7E6800AD51BA /* SceneDelegate.swift in Sources */,
 				A0AED11E2634C2B300CA51C5 /* LoginViewController.swift in Sources */,
+				A0FE7D4E263A14C700DFA258 /* FaceClassifierV3.mlmodel in Sources */,
 				A0951318262F8C900066554E /* Module.swift in Sources */,
 				A0B8A35F2630C70A00068B14 /* SuccessViewController.swift in Sources */,
 				A0CDC2D02638E6920022BEA2 /* ModuleListViewController.swift in Sources */,
