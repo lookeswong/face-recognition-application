@@ -13,6 +13,7 @@ class StudentViewController: UITableViewController {
     
     var notificationToken: NotificationToken?
     var students: Results<Student>?
+    var realm : Realm?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class StudentViewController: UITableViewController {
         let destinationVC = segue.destination as! StudentDetailViewController
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.student = students?[indexPath.row]
+            destinationVC.realm = self.realm
         }
     }
     
@@ -74,6 +76,7 @@ class StudentViewController: UITableViewController {
                 print("Failed to open realm: \(error)")
             case .success(let realm):
                 self.onRealmOpened(realm)
+                self.realm = realm
             }
         }
     }

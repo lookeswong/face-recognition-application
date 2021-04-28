@@ -40,17 +40,6 @@ class SessionListViewController: UITableViewController {
             try! self.realm?.write {
                 self.selectedModule?.sessions.append(newSession)
                 }
-            // change session model to let user enter room and time only
-//            if let roomNo = sessionRoomNo.text {
-//                newSession.roomNo = roomNo
-//            }
-//            if let sessionDate = sessionDateTextField.text {
-//                newSession.sessionDate = sessionDate
-//            }
-//            if let sessionTime = sessionTimeTextField.text {
-//                newSession.sessionTime = sessionTime
-//            }
-//            self.saveSession(session: newSession)
             print("successfully created a session")
             self.tableView.reloadData()
         }

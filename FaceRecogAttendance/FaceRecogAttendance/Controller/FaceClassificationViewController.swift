@@ -75,7 +75,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
             // if the correct face is identified, create attendance
             if capturedFaceCount > 100 {
                 DispatchQueue.main.async {
-                    let alert = UIAlertController.init(title: "Verify", message: "\(self.label.text!), please confirm", preferredStyle: .alert)
+                    let alert = UIAlertController.init(title: "Verify", message: "\(self.label.text!)%, please confirm", preferredStyle: .alert)
                     alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
                         self.verification = true
                         print("verification is now true")
@@ -114,7 +114,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
             print(topResult.identifier, topResult.confidence * 100)
             
             DispatchQueue.main.async {[weak self] in
-                self?.label.text = "\(topResult.identifier) - \(topResult.confidence)"
+                self?.label.text = "\(topResult.identifier) - \(topResult.confidence * 100)"
             }
         }
 

@@ -11,15 +11,14 @@ import RealmSwift
 
 class StudentDetailViewController: UIViewController {
     
-    let realm = try! Realm()
+    var realm : Realm?
+    var student: Student?
     
     @IBOutlet weak var studentNameLabel: UILabel!
     @IBOutlet weak var studentIDLabel: UILabel!
     @IBOutlet weak var studentEmailLabel: UILabel!
     @IBOutlet weak var imageUploadLabel: UILabel!
     @IBOutlet weak var imageTrainedSegment: UISegmentedControl!
-    
-    var student: Student?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,7 @@ class StudentDetailViewController: UIViewController {
     
     @IBAction func imageTrainedPressed(_ sender: UISegmentedControl) {
         do {
-            try realm.write {
+            try self.realm?.write {
                 switch imageTrainedSegment.selectedSegmentIndex
                 {
                 case 0:
