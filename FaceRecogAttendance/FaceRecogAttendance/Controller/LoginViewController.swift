@@ -12,20 +12,27 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var isLogin: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func checkifAdmin(username: String, password: String) -> Bool {
+    func checkifAdmin(username: String, password: String){
         if username == "admin" && password == "admin" {
-            return true
+            isLogin = true
         }
-        return false
+        isLogin = false
+        return
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "goToAdmin", sender: self)
+        if isLogin == true {
+            performSegue(withIdentifier: "goToAdmin", sender: self)
+        } else {
+            let alert = UIAlertController.init(title: "Error", message: "Wrong login credentials", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

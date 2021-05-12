@@ -73,27 +73,29 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
             print("capture face \(capturedFaceCount) times")
             classifyFace(image: pixelBuffer, model: model)
             // if the correct face is identified, create attendance
-            if capturedFaceCount > 100 {
+            if capturedFaceCount == 100 {
                 DispatchQueue.main.async {
                     let alert = UIAlertController.init(title: "Verify", message: "\(self.label.text!)%, please confirm", preferredStyle: .alert)
                     alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
                         self.verification = true
                         print("verification is now true")
+                        self.navigationController?.popToRootViewController(animated: true)
                     }))
                     alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
-                    if self.verification == true {
-                        let newAttendance = Attendance(studentID: "test", studentName: self.label.text!, dateCreated: Date())
-                        
-                        try! self.realm?.write {
-                            self.selectedSession?.attendances.append(newAttendance)
-                        }
-                        print("attendance created")
-                        self.cameraManager.captureSession.stopRunning()
-                        self.navigationController?.popToRootViewController(animated: true)
-                        return
+//                    if self.verification == true {
+                    let name = self.label.text!.components(separatedBy: "-").first!
+                    print(name)
+                    let newAttendance = Attendance(studentID: "test", studentName: name, dateCreated: Date())
+                    
+                    try! self.realm?.write {
+                        self.selectedSession?.attendances.append(newAttendance)
                     }
+                    print("attendance created")
+                    self.cameraManager.captureSession.stopRunning()
+//                        return
+//                    }
                 }
             }
         } else {
@@ -133,6 +135,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
         let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in
             guard let faceResults = request.results as? [VNFaceObservation], let _ = faceResults.first else {
                 print("no faces")
+                self.capturedFaceCount = 0
                 self.faceDetected = false
                 DispatchQueue.main.async {
                     self.label.text = "no faces"
