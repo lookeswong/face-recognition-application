@@ -11,14 +11,12 @@ import RealmSwift
 
 class SelectModuleViewController: UITableViewController {
     
-//    let realm = try! Realm()
     var notificationToken: NotificationToken?
     var realm : Realm?
     var modules : Results<Module>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadModules()
         onLogin()
     }
     
@@ -42,6 +40,7 @@ class SelectModuleViewController: UITableViewController {
         performSegue(withIdentifier: "goToSelectSession", sender: self)
     }
     
+    // set variable in the next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! SelectSessionViewController
         
@@ -51,19 +50,12 @@ class SelectModuleViewController: UITableViewController {
         }
     }
     
-    //MARK - Data Manipulation Methods
-    // function to present all modules from database
-//    func loadModules() {
-//        modules = realm.objects(Module.self)
-//        tableView.reloadData()
-//    }
-    
     //MARK: - REALM SYNC DATA MANIPULATION METHOD
-    
+    // disable notification token if its not in use
     deinit {
         notificationToken?.invalidate()
     }
-    
+    // check if user can get access to synced realm
     func onLogin() {
         let user = app.currentUser!
         let partitionValue = "user=\(user.id)"
@@ -79,6 +71,7 @@ class SelectModuleViewController: UITableViewController {
         }
     }
     
+    // If user is able to access realm
     func onRealmOpened(_ realm: Realm) {
         modules = realm.objects(Module.self)
         

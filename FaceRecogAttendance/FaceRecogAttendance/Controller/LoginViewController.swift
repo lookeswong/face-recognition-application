@@ -16,17 +16,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
     
+    // function to check if admin credentials enter is correct
     func checkifAdmin(username: String, password: String){
         if username == "admin" && password == "admin" {
             isLogin = true
+        } else {
+            isLogin = false
         }
-        isLogin = false
         return
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        checkifAdmin(username: emailTextField.text!, password: passwordTextField.text!)
         if isLogin == true {
             performSegue(withIdentifier: "goToAdmin", sender: self)
         } else {

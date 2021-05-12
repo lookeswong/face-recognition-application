@@ -20,11 +20,7 @@ class StudentViewController: UITableViewController {
         onLogin()
     }
     
-    deinit {
-        notificationToken?.invalidate()
-    }
-    
-    //MARK - Tableview Datasource Method
+    //MARK: - Tableview Delegate Method
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students?.count ?? 1
     }
@@ -35,7 +31,7 @@ class StudentViewController: UITableViewController {
         return cell
     }
     
-    //MARK - Tableview Delegate Method
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(studentArray[indexPath.row])
         performSegue(withIdentifier: "goToStudentDetail", sender: self)
@@ -49,20 +45,11 @@ class StudentViewController: UITableViewController {
             destinationVC.realm = self.realm
         }
     }
-    
-//    // function to login to synced realm
-//    func login() {
-//        app.login(credentials: Credentials.anonymous) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .failure(let error):
-//                    print("Login Failed: \(error)")
-//                case .success(let user):
-//                    print("Login as \(user) sucdeeded")
-//                }
-//            }
-//        }
-//    }
+    //MARK: - Realm Sync Data Manipulation Methods
+    // disable notification token if its not in use
+    deinit {
+        notificationToken?.invalidate()
+    }
     
     // check if user is allow to access to synced realm
     func onLogin() {
@@ -81,6 +68,7 @@ class StudentViewController: UITableViewController {
         }
     }
     
+    // If user is able to access realm
     func onRealmOpened(_ realm: Realm) {
         students = realm.objects(Student.self)
         

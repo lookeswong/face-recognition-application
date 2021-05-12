@@ -11,11 +11,10 @@ import RealmSwift
 
 class AttendanceListViewController: UITableViewController {
     
-//    let realm = try! Realm()
-
     var notificationToken: NotificationToken?
     var realm : Realm?
     var attendance : Results<Attendance>?
+    // set array of attendance to the var
     var selectedSession : Session? {
         didSet {
             loadAttendance()
@@ -26,6 +25,7 @@ class AttendanceListViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    //MARK: - TableView Datasource method
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return attendance?.count ?? 1
     }
@@ -40,6 +40,8 @@ class AttendanceListViewController: UITableViewController {
         return cell
     }
     
+    //MARK: - Data Manipulation Method
+    // load array of attendance in a session
     func loadAttendance() {
         attendance = selectedSession?.attendances.sorted(byKeyPath: "studentName")
         tableView.reloadData()

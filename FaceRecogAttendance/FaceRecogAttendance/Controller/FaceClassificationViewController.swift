@@ -14,7 +14,6 @@ import RealmSwift
 
 class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    var notificationToken: NotificationToken?
     var realm : Realm?
     var attendance : Results<Attendance>?
     var selectedSession : Session? {
@@ -22,11 +21,13 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
             loadAttendance()
         }
     }
-    var faceDetected: Bool = false
-    var verification: Bool = false
+    
     let captureSession = AVCaptureSession()
     let cameraManager = CameraManager()
-    var capturedFaceCount = 0
+    
+    private var capturedFaceCount = 0
+    private var faceDetected: Bool = false
+    private var verification: Bool = false
     
     let label: UILabel = {
         let label = UILabel()
@@ -39,15 +40,13 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
         return label
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupTabBar()
-//        setupCamera()
         cameraManager.setupCamera(view: view, delegate: self)
         setupLabel()
     }
     
+    // setup label at the bottom of the screen
     func setupLabel() {
         view.addSubview(label)
         label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
@@ -56,10 +55,10 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
         label.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
+    // function to capture every image frame
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        verification = false
-        faceDetected = false
+        self.verification = false
+        self.faceDetected = false
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         // initiate the face recognition model
         guard let model = try? VNCoreMLModel(for: FaceClassifierV3().model) else {
@@ -84,18 +83,18 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
                     alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
-//                    if self.verification == true {
-                    let name = self.label.text!.components(separatedBy: "-").first!
-                    print(name)
-                    let newAttendance = Attendance(studentID: "test", studentName: name, dateCreated: Date())
-                    
-                    try! self.realm?.write {
-                        self.selectedSession?.attendances.append(newAttendance)
+                    if self.verification == true {
+                        let name = self.label.text!.components(separatedBy: "-").first!
+                        print(name)
+                        let newAttendance = Attendance(studentID: "test", studentName: name, dateCreated: Date())
+                        
+                        try! self.realm?.write {
+                            self.selectedSession?.attendances.append(newAttendance)
+                        }
+                        print("attendance created")
+                        self.cameraManager.captureSession.stopRunning()
+                            return
                     }
-                    print("attendance created")
-                    self.cameraManager.captureSession.stopRunning()
-//                        return
-//                    }
                 }
             }
         } else {
@@ -104,6 +103,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
     }
     
     //MARK: - Facial Recognition Method
+    // function to classify faces
     func classifyFace(image: CVPixelBuffer, model: VNCoreMLModel) {
 
         let coreMlRequest = VNCoreMLRequest(model: model) {[weak self] request, error in
@@ -130,6 +130,7 @@ class FaceClassificationViewController: UIViewController, AVCaptureVideoDataOutp
         }
     }
     
+    // function to detect faces
     func detectFace(image: CIImage){
         // try to detect face
         let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in

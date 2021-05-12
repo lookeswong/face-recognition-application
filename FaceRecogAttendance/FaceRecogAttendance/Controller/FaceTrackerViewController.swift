@@ -33,29 +33,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         super.viewDidLoad()
         promptCommand()
         cameraManager.setupCamera(view: view, delegate: self)
-//        setupCamera()
     }
-    
-//    func setupCamera() {
-//        let captureSession = AVCaptureSession()
-//        captureSession.sessionPreset = .high
-//
-//        guard let captureDevice = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .front) else { preconditionFailure("A Camera is needed to start the AV session")  }
-//
-//        //throw error if no camera is found.
-//        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
-//        captureSession.addInput(input)
-//
-//        captureSession.startRunning()
-//
-//        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-//        view.layer.addSublayer(previewLayer)
-//        previewLayer.frame = view.frame
-//
-//        let dataOutput = AVCaptureVideoDataOutput()
-//        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-//        captureSession.addOutput(dataOutput)
-//    }
     
     // this function capture the output image frame by frame
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -106,7 +84,7 @@ class FaceTrackerViewController: UIViewController, AVCaptureVideoDataOutputSampl
         }
     }
     
-    //MARK:- Firebase method
+    //MARK:- Firebase upload method
     // upload image to firebase storage
     fileprivate func uploadImages(image: UIImage, completion: @escaping (_ url: String?) -> Void) {
         // convert UIImage to jpg format

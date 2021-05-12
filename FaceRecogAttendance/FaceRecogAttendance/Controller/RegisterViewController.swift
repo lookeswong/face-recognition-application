@@ -26,7 +26,6 @@ class RegisterViewController: UIViewController {
         signUp()
     }
     
-    
     @IBAction func recordButtonPressed(_ sender: UIButton) {
         studentID = studentIDTextField.text!
         studentName = nameTextField.text!
@@ -60,11 +59,13 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    //MARK: - Realm Sync Data Manipulation Method
+    // disable notification token if its not in use
     deinit {
         notificationToken?.invalidate()
     }
     
-    // a function that allow student to sign up to the application
+    // a function that allow user to access to Realm Sync SDK
     @objc func signUp() {
         app.login(credentials: Credentials.anonymous) { (result) in
             // Remember to dispatch back to the main thread in completion handlers
@@ -75,7 +76,6 @@ class RegisterViewController: UIViewController {
                     print("Login failed: \(error)")
                 case .success(let user):
                     print("Login as \(user) succeeded!")
-                    // Continue below
                     self.signIn()
                 }
             }
@@ -119,12 +119,11 @@ class RegisterViewController: UIViewController {
                 fatalError("\(error)")
             }
         }
-        
     }
     
 }
 
-// CHANGE THIS TO DELEGATE FUNCTION!!!
+// Let keyboard dissapear if press else where
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

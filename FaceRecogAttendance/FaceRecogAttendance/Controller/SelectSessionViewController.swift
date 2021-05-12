@@ -11,10 +11,9 @@ import RealmSwift
 
 class SelectSessionViewController: UITableViewController {
     
-//    let realm = try! Realm()
-    var notificationToken: NotificationToken?
     var realm : Realm?
     var sessions : Results<Session>?
+    // set array of session to this var
     var selectedModule : Module? {
         didSet{
             loadSessions()
@@ -25,7 +24,7 @@ class SelectSessionViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    //MARK - TableView Datasource method
+    //MARK: - TableView Datasource method
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions?.count ?? 1
     }
@@ -44,6 +43,7 @@ class SelectSessionViewController: UITableViewController {
         performSegue(withIdentifier: "goToFaceRecognition", sender: self)
     }
     
+    // set variable in the next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! FaceClassificationViewController
         
@@ -53,6 +53,8 @@ class SelectSessionViewController: UITableViewController {
         }
     }
     
+    //MARK: - Realm Data Manipulation Method
+    // load array of sessions
     func loadSessions() {
         sessions = selectedModule?.sessions.sorted(byKeyPath: "roomNo")
         tableView.reloadData()

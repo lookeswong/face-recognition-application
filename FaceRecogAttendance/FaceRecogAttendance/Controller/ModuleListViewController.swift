@@ -29,7 +29,7 @@ class ModuleListViewController: UITableViewController {
         onLogin()
     }
     
-    //MARK - TableView Datasource Method
+    //MARK: - TableView Datasource Method
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modules?.count ?? 1
     }
@@ -63,29 +63,7 @@ class ModuleListViewController: UITableViewController {
         }
     }
     
-    //MARK - Data Manipulation Methods
-    // function to present all modules from database
-//    func loadModules() {
-//        modules = realm.objects(Module.self)
-//        tableView.reloadData()
-//    }
-    
-    deinit {
-        notificationToken?.invalidate()
-    }
-    
-    // function to create a module object in the database
-//    func saveModule(module: Module) {
-//        do {
-//            try realm.write {
-//                realm.add(module)
-//            }
-//        } catch {
-//            print("Error saving module \(error)")
-//        }
-//    }
-    
-    //MARK: - Add New Modules
+    //Add New Modules button
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var moduleNameTextField = UITextField()
@@ -122,6 +100,11 @@ class ModuleListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Realm Sync Data Manipulation Methods
+    deinit {
+        notificationToken?.invalidate()
+    }
+    
     // check if user can access to synced realm
     func onLogin() {
         let user = app.currentUser!
@@ -138,8 +121,7 @@ class ModuleListViewController: UITableViewController {
         }
     }
     
-    //MARK: - Data Manipulation Methods
-    // if realm is accessed, load the database
+    // If user is able to access realm
     func onRealmOpened(_ realm: Realm) {
         modules = realm.objects(Module.self)
         
