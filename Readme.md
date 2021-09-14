@@ -1,4 +1,4 @@
-This repository represents the final year project Software Development Project.
+This is a face recognition attendance system project, this repository represents the final year project Software Development Project.
 
 It has 2 directory:
 1. face_recog_model :- folder for machine learning model\
